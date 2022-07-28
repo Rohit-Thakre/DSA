@@ -123,6 +123,7 @@ int main()
             exit(1);
             break;
         default:
+            i = 0;
             break;
         }
     }
