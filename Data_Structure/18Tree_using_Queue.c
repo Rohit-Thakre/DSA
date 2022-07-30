@@ -70,7 +70,7 @@ void create(Queue *q)
     Node *temp = malloc(sizeof(Node));
     temp->left = temp->right = NULL;
 
-    printf("Enter the data to be inserted.: ");
+    printf("Enter the data to be inserted in root node.: ");
     scanf("%d", &data);
 
     temp->data = data;
@@ -84,28 +84,28 @@ void create(Queue *q)
     {
         t = dequeue(q);
 
-        printf("is left child present ?: ");
+        printf("is left child %d of : ", t->data);
         scanf("%d", &lans);
         if (lans)
         {
             temp = malloc(sizeof(Node));
             temp->left = temp->right = NULL;
-            printf("Enter the data to be inserted. :");
-            scanf("%d", &data);
-            temp->data = data;
+            // printf("Enter the data to be inserted. :");
+            // scanf("%d", &data);
+            temp->data = lans;
             enqueue(q, temp);
             t->left = temp;
         }
 
-        printf("is right child present ?: ");
+        printf("is right child %d of : ", t->data);
         scanf("%d", &rans);
         if (rans)
         {
             temp = malloc(sizeof(Node));
             temp->left = temp->right = NULL;
-            printf("Enter the data to be inserted. :");
-            scanf("%d", &data);
-            temp->data = data;
+            // printf("Enter the data to be inserted. :");
+            // scanf("%d", &data);
+            temp->data = rans;
             enqueue(q, temp);
             t->right = temp;
         }
