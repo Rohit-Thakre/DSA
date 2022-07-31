@@ -257,7 +257,7 @@ int dequeue(Queue *q)
 
 // -----------------------------------------------------------
 
-void create(Queue *q)
+Node *create(Queue *q)
 {
     int lans;
     int rans;
@@ -313,6 +313,8 @@ void create(Queue *q)
         if (next == 0)
             break;
     }
+
+    return root;
 }
 
 // -------------------------------------------------
@@ -412,17 +414,34 @@ void inorder()
     }
 }
 // -----------------------------------
+
+// count nodes in binary tree.
+int count_nodes(Node *root)
+{
+    int x, y;
+    if (root)
+    {
+        x = count_nodes(root->left);
+        y = count_nodes(root->right);
+        return x + y + 1;
+    }
+
+    else
+        return 0;
+}
 int main()
 {
     system("cls");
     system("color a");
 
     Queue *q = createq();
-    create(q);
+    root = create(q);
 
     printf("\npreorder :::\n");
     preorder();
 
     printf("\n\ninorder :::\n");
     inorder();
+
+    printf("\nTotal Nodes: %d \n", count_nodes(root));
 }
